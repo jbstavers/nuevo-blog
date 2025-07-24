@@ -1,0 +1,34 @@
+---
+layout: page
+title: Topics
+---
+{% assign all_categories = site.categories | sort %}
+{% if all_categories.size > 0 %}
+  <div class="topics-list">
+    {% for category in all_categories %}
+      <section class="topic-section">
+        <h2 id="{{ category[0] | slugify }}">{{ category[0] | capitalize }}</h2>
+        <ul class="post-list">
+          {% for post in category[1] %}
+            <li>
+              <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+              <time class="post-meta">{{ post.date | date: "%b %d, %Y" }}</time>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endfor %}
+  </div>
+{% else %}
+  <p>No topics yet. Topics will appear here as you add categories to your posts.</p>
+{% endif %}
+
+{% if site.topics.size > 0 %}
+  <hr>
+  <h2>Topic Pages</h2>
+  <ul>
+    {% for topic in site.topics %}
+      <li><a href="{{ topic.url | relative_url }}">{{ topic.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

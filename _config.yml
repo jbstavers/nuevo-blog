@@ -1,0 +1,57 @@
+title: NeuvoBlog
+author: author_name
+description: A new blog
+url: "https://jbstavers.github.io"
+baseurl: "/neuvo-blog"
+
+# Permalink structure
+permalink: /:year/:month/:title/
+
+# Markdown settings
+markdown: kramdown
+highlighter: rouge
+
+# Excerpt handling
+excerpt_separator: "<!--more-->"
+
+# Collections for topic pages
+collections:
+  topics:
+    output: true
+    permalink: /topics/:name/
+
+# Default front matter
+defaults:
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: "_topics"
+      type: "topics"
+    values:
+      layout: "topic"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Plugins
+plugins:
+  - jekyll-feed
+
+# Feed settings
+feed:
+  posts_limit: 20
+
+# Exclude files
+exclude:
+  - README.md
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+  - System_Architecture.md
+  - .nova
+  - .vscode
+  - .idea

@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<div class="home">
+  <div class="post-list">
+    {% for post in site.posts limit:10 %}
+      <article class="post-preview">
+        <h2 class="post-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        </h2>
+        <time class="post-meta" datetime="{{ post.date | date_to_xmlschema }}">
+          {{ post.date | date: "%B %d, %Y" }}
+        </time>
+        {% if post.excerpt %}
+          <div class="post-excerpt">
+            {{ post.excerpt }}
+            <p><a href="{{ post.url | relative_url }}" class="read-more">Read more →</a></p>
+          </div>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+
+  {% if site.posts.size > 10 %}
+  <p class="archive-link">
+    <a href="{{ '/archive' | relative_url }}">View all posts →</a>
+  </p>
+  {% endif %}
+</div>

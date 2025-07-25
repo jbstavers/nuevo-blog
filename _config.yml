@@ -2,7 +2,7 @@ title: NeuvoBlog
 author: author_name
 description: A new blog
 url: "https://jbstavers.github.io"
-baseurl: "/neuvo-blog"
+baseurl: "/nuevo-blog"
 
 # Permalink structure
 permalink: /:year/:month/:title/
